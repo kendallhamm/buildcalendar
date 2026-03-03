@@ -258,12 +258,12 @@ with st.sidebar:
 
     if total is not None:
         st.metric(
-            label="Schedules generated",
+            label="ICS Files generated",
             value=total
         )
     else:
         st.metric(
-            label="Schedules generated",
+            label="ICS Files generated",
             value="—"
         )
 
@@ -348,6 +348,8 @@ if uploaded_file and generate_button:
     ics += "END:VCALENDAR\r\n"
 
     st.success(f"Generated {len(events)} events.")
+
+    log_schedule_generated()
 
     st.download_button(
         label="Download ICS File",
