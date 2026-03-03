@@ -5,6 +5,7 @@ import re
 from datetime import datetime
 from zoneinfo import available_timezones, ZoneInfo
 from io import StringIO
+import requests
 
 st.set_page_config(page_title="CSV to ICS Generator", layout="wide")
 
