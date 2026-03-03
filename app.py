@@ -250,6 +250,25 @@ timezone = st.selectbox(
 
 generate_button = st.button("Generate ICS")
 
+#Usage Display
+with st.sidebar:
+
+    total = get_total_schedules_generated()
+
+    if total is not None:
+        st.metric(
+            label="Schedules generated",
+            value=total
+        )
+    else:
+        st.metric(
+            label="Schedules generated",
+            value="—"
+        )
+
+    st.caption("Updates every ~5 minutes")
+
+
 # ---------------------------------
 # Processing
 # ---------------------------------
