@@ -97,6 +97,8 @@ def format_dt(date_obj, time_str):
 st.title("CSV to ICS Calendar Generator")
 
 st.write("Upload a CSV file formatted with columns: Date, Start, End, Location, Activity, POC, Comments.")
+st. write("The .ics file will export with the date/start/end times correct. The Activity will be the event name, the POC and comments will be in the description block."
+)
 
 uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
 
