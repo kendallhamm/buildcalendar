@@ -10,9 +10,32 @@ st.set_page_config(page_title="CSV to ICS Generator", layout="wide")
 
 TIMEZONE_DEFAULT = "America/New_York"
 
+# Analytics
+GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycbyAaJudgxvFC1qh1GyypKgeGjbO-6iHVgABZa0_svbadwgB7YJOFH5Wc5hH_Y98ZKxqyw/exec"
+def log_schedule_generated():
+    try:
+        requests.post(GOOGLE_APP_URL, timeout=5)
+    except Exception:
+        # Fail silently: logging should never break scheduling
+        pass
+
+# Refresh of 'total schedules generated' value function definition
+@st.cache_data(ttl=300, show_spinner=False)  # refresh every 5 minutes
+def get_total_schedules_generated():
+    try:
+        r = requests.get(GOOGLE_APP_URL, timeout=15) # timeout at 15 seconds. 5 was too short for stale script.
+        r.raise_for_status()
+        return int(r.text)
+    except Exception:
+        # Analytics should never break the app
+        return None
+
+
 # ---------------------------------
 # Header Normalization
 # ---------------------------------
+
+
 
 def normalize_header(name):
     if name is None:
