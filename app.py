@@ -214,7 +214,7 @@ st.title("CSV to ICS Calendar Generator")
 st.write("Upload a CSV file formatted with columns: Date, Start, End, Location, Activity, POC, Comments.")
 st. write("The .ics file will export with the date/start/end times correct. The Activity will be the event name, the POC and comments will be in the description block.")
 
-st.write("For U.S. time zones, the app embeds official DST transition rules directly into the .ics file to prevent 1-hour time shifts when importing into Outlook. Users select the region only; DST is handled automatically. (Applies to Eastern, Central, Mountain, Pacific, Alaska, and Hawaii)")
+st.write("For U.S. time zones, the app embeds official DST transition rules directly into the .ics file to prevent 1-hour time shifts when importing into Outlook. Users select the region only; DST is handled automatically. Applies to Eastern, Central, Mountain, Pacific, Alaska, and Hawaii. ")
 
 uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
 
