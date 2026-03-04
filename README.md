@@ -81,6 +81,8 @@ This approach ensures reliable imports across:
 - Outlook Web
 - Google Calendar
 - Apple Calendar
+
+### Built by K. Hamm with assistance from ChatGPT 5.3, initially released 20250303
 ---
 
 ## Installation
